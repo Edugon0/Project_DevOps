@@ -2,10 +2,10 @@ stages:
   - build
   - deploy
 
-  criar_imagens:
-    stage: build
-    tags:
-      - test
-    script:
-    - docker build -t goncalves878/my-docker-devops app/.
-    - docker push goncalves878/my-docker-devops
+criar_imagens:
+  stage: build
+  tags:
+    - test
+  script:
+  - docker build -t goncalves878/my-docker-devops app/.
+  - docker push goncalves878/my-docker-devops
