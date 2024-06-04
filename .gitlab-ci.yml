@@ -9,3 +9,12 @@ criar_imagens:
   script:
   - docker build -t goncalves878/my-docker-devops app/.
   - docker push goncalves878/my-docker-devops
+
+executar_imagens:
+  stage: deploy
+  needs:
+    - criar_imagens
+  tags:
+    - test
+  script:
+  - docker run -dti --name web-server -p 80:80 goncalves878/my-docker-devops:latest
