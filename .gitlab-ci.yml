@@ -10,8 +10,8 @@ criar_imagens:
   tags:
     - test
   script:
-  - docker build -t goncalves878/my-docker-devops:$GLOBAL_VAR app/.
-  - docker push goncalves878/my-docker-devops:$GLOBAL_VAR
+  - docker build -t goncalves878/my-docker-devops app/.
+  - docker push goncalves878/my-docker-devops
 
 executar_imagens:
   stage: deploy
