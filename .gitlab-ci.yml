@@ -2,8 +2,6 @@ stages:
   - build
   - deploy
 
-variable:
-  GLOBAL_VAR: "3.0"
 
 criar_imagens:
   stage: build
@@ -22,6 +20,6 @@ executar_imagens:
   before_script:
   - docker rm $(docker ps -a -q) --force
   script:
-  - docker run -dti --name web-server -p 80:80 goncalves878/my-docker-devops:$GLOBAL_VAR
+  - docker run -dti --name web-server -p 80:80 goncalves878/my-docker-devops:latest
   after_script:
   - docker system prune --force
