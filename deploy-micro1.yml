@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: micro1-deployment
+  labels:
+    app: micro1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: micro1
+  template:
+    metadata:
+      labels:
+        app: micro1
+    spec:
+      containers:
+      - name: micro1
+        image: goncalves878/my-docker-devops app/.
+        ports:
+        - containerPort: 80

@@ -6,20 +6,9 @@ stages:
 criar_imagens:
   stage: build
   tags:
-    - test
+    - gcp
   script:
   - docker build -t goncalves878/my-docker-devops app/.
   - docker push goncalves878/my-docker-devops
 
-executar_imagens:
-  stage: deploy
-  needs:
-    - criar_imagens
-  tags:
-    - test
-  before_script:
-  - docker rm $(docker ps -a -q) --force
-  script:
-  - docker run -dti --name web-server -p 80:80 goncalves878/my-docker-devops:latest
-  after_script:
-  - docker system prune --force
+
