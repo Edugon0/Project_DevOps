@@ -11,4 +11,11 @@ criar_imagens:
   - docker build -t goncalves878/my-docker-devops app/.
   - docker push goncalves878/my-docker-devops
 
-
+kubernetes:
+  stage: deploy
+  needs:
+    - criar_imagens
+  tags:
+    - gcp
+  script:
+  - kubectl apply -f ./deploy-micro1.yml
